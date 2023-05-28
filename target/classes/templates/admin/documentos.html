@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Clientes</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+</head>
+<body class="bg-dark">
+	<nav
+		class="navbar navbar-dark bg-secondary border-bottom border-danger"
+		style="width: 100%; position: fixed; top: 0; margin-bottom: 3%">
+		<div class="container-fluid">
+			<i><a class="navbar-brand" th:href="@{/loggedIndex}">CHEETAH:
+					<br> Game faster
+			</a></i>
+		</div>
+	</nav>
+	<div class="container" style="margin-top: 5rem; width:100%">
+		<h1 class="text-white col">DOCUMENTOS</h1>
+		<table class="table text-white" style="overflow-x: auto;">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Descargar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="documento:${listaDocumentos}" class="text-white">
+					<td th:text="${documento.nombre}"></td>
+					<td>
+					    <a th:href="@{/descarga/{nombre}(nombre=${documento.nombre})}">Descargar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

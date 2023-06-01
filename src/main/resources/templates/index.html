@@ -96,59 +96,34 @@
 			</div>
 		</div>
 	</div>
-
-	<div>
-		<h1 class="text-white" style="margin-left: 5%; margin-top: 5%">Noticias
+	
+	<h1 class="text-white" style="margin-left: 5%; margin-top: 5%">Noticias
 			del día</h1>
-		<div class="row justify-content-around g-0">
-				<div
+			
+	<div class="row justify-content-around g-0">
+				<div th:each="noticia:${listaNoticias}"
 					class="card bg-secondary border border-danger text-center text-white col-sm-12 col-md-6 col-lg-3"
 					style="margin: 3%; padding:2%">
 					<a
-						href="https://vandal.elespanol.com/noticia/1350754333/spiderman-estara-en-la-version-de-marvels-midnight-suns-de-xbox-no-hay-problema/"
+						th:href="${noticia.url}"
 						class="text-white">
-						<h5
-							class="card-title" style="margin-top: 5%">Spider-Man estará
-							en la versión de Marvel's Midnight Suns de Xbox: 'No hay
-							problema'</h5>
+						<h5 th:text="${noticia.titulo}"
+							class="card-title" style="margin-top: 5%"/>
 					</a> 
-						<a href="https://vandal.elespanol.com/noticia/1350754333/spiderman-estara-en-la-version-de-marvels-midnight-suns-de-xbox-no-hay-problema/" style="margin-top:2%; margin-bottom:5%">
-							<img th:src="@{/images/spiderman.jpg}" width=100% /></a>
+						
+						<a th:href="${noticia.url}" style="margin-top:2%; margin-bottom:5%">
+							<span th:if="${noticia.imagenUrl == null}">
+								<img th:src="@{/images/Imagen_no_disponible}" width=100% />
+							</span>
+							<span th:unless="${noticia.imagenUrl == null}">
+								<img th:src="${noticia.imagenUrl}" width=100% />
+							</span>
+						</a>
 					<div class="card-body">
-						<p>Firaxis Games, responsables de Marvel's Midnight Suns,
-							aseguran no haber tenido problemas en añadir a Spider-Man en las
-							versiones de Xbox aunque su licencia pertenezca a Sony, en vez de
-							a Marvel.</p>
+						<p th:text="${noticia.descripcion}"/>
 					</div>
 				</div>
-				<div
-					class="card bg-secondary border border-danger text-center text-white col-sm-12 col-md-6 col-lg-3"
-					style="margin: 3%; padding:2%">
-					<a
-						href="https://vandal.elespanol.com/noticia/1350754336/encuentran-un-sorprendente-port-de-quake-para-game-boy-advance-que-puedes-descargar-y-jugar/"
-						class="text-white"><h5
-							class="card-title" style="margin-top: 5%">Encuentran un sorprendente port de Quake para Game Boy Advance que es jugable
-							</h5></a> <a href="https://vandal.elespanol.com/noticia/1350754336/encuentran-un-sorprendente-port-de-quake-para-game-boy-advance-que-puedes-descargar-y-jugar/" style="margin-top:2%; margin-bottom:5%">
-							<img th:src="@{/images/portQuake.jpg}" width=100% /></a>
-
-					<div class="card-body">
-						<p>Quake estuvo a punto de tener una versión para Game Boy Advance: el desarrollador Randy Linden creó un impresionante prototipo que acaba de ver la luz.</p>
-					</div>
-				</div>
-				<div
-					class="card bg-secondary border border-danger text-center text-white col-sm-12 col-md-6 col-lg-3"
-					style="margin: 3%; padding:2%">
-					<a
-						href="https://vandal.elespanol.com/noticia/1350754307/the-last-of-us-parte-i-comparado-con-el-original-asi-han-mejorado-los-graficos/"
-						class="text-white" style="margin-top:2%; margin-bottom:5%"><h5
-							class="card-title" style="margin-top: 5%">The Last of Us remake comparado con el original: Así han mejorado los gráficos</h5></a> <a href="https://vandal.elespanol.com/noticia/1350754307/the-last-of-us-parte-i-comparado-con-el-original-asi-han-mejorado-los-graficos/">
-							<img th:src="@{/images/TLOU.jpg}" width=100% /></a>
-
-					<div class="card-body">
-						<p>Naughty Dog hizo oficial el remake del primer The Last of Us en PS5 y PC, y su primer tráiler nos sirve para ver los cambios del juego que llega en septiembre.</p>
-					</div>
-				</div>
-			</div>
 		</div>
+	<div>
 </body>
 </html>

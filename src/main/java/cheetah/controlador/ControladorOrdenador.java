@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import cheetah.modelo.Cliente;
+import cheetah.modelo.Noticia;
 import cheetah.modelo.Ordenador;
 import cheetah.modelo.Sesion;
 import cheetah.servicioInterfaz.IClienteServicio;
+import cheetah.servicioInterfaz.INoticiaServicio;
 import cheetah.servicioInterfaz.IOrdenadorServicio;
 import cheetah.servicioInterfaz.ISesionServicio;
 import cheetah.utils.SesionAux;
@@ -38,12 +40,17 @@ public class ControladorOrdenador {
 	@Autowired
 	private IClienteServicio servicioC;
 	
+	@Autowired
+	private INoticiaServicio servicioN;
+	
 	@GetMapping({"/", "/index"})
 	public String listar(Model model) {
 		List<Ordenador>listaOrdenadoresCaros = servicioO.listarCaros();
 		List<Ordenador>listaOrdenadoresBaratos = servicioO.listarBaratos();
+		List<Noticia> listaNoticias = servicioN.listar();
 		model.addAttribute("listaOrdenadoresCaros", listaOrdenadoresCaros);
 		model.addAttribute("listaOrdenadoresBaratos", listaOrdenadoresBaratos);
+		model.addAttribute("listaNoticias", listaNoticias);
 		return "index";
 	}
 	

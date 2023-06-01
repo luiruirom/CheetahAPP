@@ -21,6 +21,7 @@ public class CheetahConfig extends WebSecurityConfigurerAdapter{
     DetallesUsuarioServicio userDetailsService;
 
 	@Override
+	@SuppressWarnings("deprecation")
 	protected void configure(HttpSecurity http) throws Exception {
 				http
 				.authorizeRequests()

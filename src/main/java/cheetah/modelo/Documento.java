@@ -21,10 +21,4 @@ public class Documento {
 	public void setRuta(String ruta) {
 		this.ruta = ruta;
 	}
-
-	@Override
-	public String toString() {
-		return "Documento [nombre=" + nombre + ", ruta=" + ruta + "]";
-	}
-
 }

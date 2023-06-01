@@ -33,7 +33,6 @@ public class NoticiaServicio implements INoticiaServicio{
 				noticiasDeApi.get(i).setImagenUrl("https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/2048px-Imagen_no_disponible.svg.png");
 			}
 			listaAMostrar.add(noticiasDeApi.get(i));
-			System.out.println(listaAMostrar.toString());
 		}
 		
 		return listaAMostrar;
